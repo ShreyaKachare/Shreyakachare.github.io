@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>help well</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #ffffff;
+      color: #93A5AC;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex; /* Flexbox for horizontal alignment */
+      justify-content: space-between; /* Space between child elements */
+      align-items: center; /* Center items vertically */
+      background: rgba(224, 243, 247, 0.158); /* Glassmorphism effect */
+      backdrop-filter: blur(10px); /* Blurring effect */
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 30px;
+      width: 95%;
+      max-width: 1400px;
+      border-radius: 30px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 0 auto;
+      transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .navbar.light {
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar ul {
+      display: flex; /* Make the list items horizontal */
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin: 0 20px; /* Space between list items */
+    }
+
+    .navbar h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #70B6D4;
+      margin: 0;
+    }
+
+    
+    .navbar ul li {
+        margin: 0 20px; /* Adjusted spacing */
+        font-size: 16px; /* Adjusted font size */
+      }
+    
+      .navbar ul li a {
+        position: relative;
+      }
+    
+      .navbar ul li a:after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -3px;
+        left: 0;
+        background-color: #70B6D4;
+        transition: width 0.4s ease-in-out;
+      }
+    
+      .navbar ul li a:hover:after {
+        width: 100%;
+      }
+
+    .navbar a.cta-button {
+      border: 2px solid #70B6D4;
+      padding: 5px 14px;
+      border-radius: 30px;
+      color: #70B6D4;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a.cta-button:hover {
+      background-color: #70B6D4;
+      color: #ffffff;
+    }
+
+    .navbar h1 img {
+    width: 130px; /* Set the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth size transition */
+}
+    
+     /* Carousel */
+    .carousel-inner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .carousel-caption {
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+ /* Resources Section */
+ .resources {
+      text-align: center;
+      padding: 35px ;
+    }
+
+    .resources h2 {
+      font-size: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      color: #7ABBD7;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+      gap: 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .resource-item {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .resource-item:hover {
+      transform: translateY(-10px); /* Hover effect for better interactivity */
+    }
+
+    .resource-item img {
+      width: 100%;
+      border-radius: 10px;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .resource-item h3 {
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #7ABBD7;
+    margin-bottom: 10px;
+    }
+
+    .resource-item p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    color: #97A4AA;
+    line-height: 1.5;
+    }
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease forwards;
+  text-align: left; /* Align text to the left */
+}
+
+/* Heading styles */
+.modal-content h1, .modal-content h3, .modal-content h5 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 23px;
+  padding-top: 10px; /* Space inside the top of the text block */
+  padding-bottom: 10px; /* Space inside the bottom */
+  font-weight: bold;
+  color: #7ABBD7; /* Heading color */
+}
+
+/* Heading styles */
+.modal-content h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #7ABBD7; /* Heading color */
+}
+
+/* Paragraph and other text styles */
+.modal-content p, .modal-content ul {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  color: #97A4AA; /* Paragraph text color */
+}
+
+/* Image Styles */
+.modal-content .image-section img { 
+  width: 100%; /* Make image responsive to container */
+  max-width: 700px; /* Limit image width */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 20px auto; /* Center the image horizontally */
+}
+
+/* Styling for the specific image */
+.image-center img {
+  width: 100%; /* Adjust width to 80% of its container */
+  max-width: 700px; /* Limit maximum width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure block-level layout */
+  margin: 20px auto; /* Center the image with vertical spacing */
+  border-radius: 8px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+
+/* Optional: Modal Close button */
+.close {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #7ABBD7;
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 40px; /* Fixed width for a square */
+  height: 40px; /* Fixed height for a square */
+  background: #ffffff; /* Background color for visibility */
+  border: 2px solid #000000; /* Optional border to define the square */
+  border-radius: 5px; /* Slightly rounded corners */
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex; /* Center content inside */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  color: #0b0b0b; /* Text color matching the theme */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add hover effect */
+}
+
+.close:hover {
+  background-color: #ffffff; /* Highlight background on hover */
+  color: #ffffff; /* Change text color on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+
+.close:hover {
+  color: red;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+   
+
+
+
+/* Tips & Quick Reads Section */
+.tips {
+      padding: 35px;
+      background-color: #ffffff;
+    }
+
+    .tips h2 {
+      font-size: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      color: #7ABBD7;
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .tip-card {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .tip-card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+      position: relative;
+      border-radius: 20px; /* Increase the radius for more curve */
+    }
+
+    .tip-card h3 {
+        font-size: 18px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #7ABBD7;
+      margin-top: 15px;
+    }
+
+    .tip-card p {
+        font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    color: #97A4AA;
+      margin: 10px 0 15px;
+    }
+
+    /* Footer Section Styling */
+.footer {
+  background-color: #70B6D4; /* Background color of the footer */
+  padding: 20px 0;
+  color: white;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.footer-links ul,
+.footer-social ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-social li {
+  margin-right: 20px;
+}
+
+.footer-links li a,
+.footer-social li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover,
+.footer-social li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-social .social-icon img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social .social-icon img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.footer-bottom p {
+  color: #ffffff;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+   
+  <nav class="navbar">
+    <h1><img src="images/logo.png" alt="Logo"></h1>
+    <ul>
+      <li><a href="Homepage.html">Home</a></li>
+      <li><a href="Resource Page.html">Resources</a></li>
+      <li><a href="Therapist Page.html">Therapists</a></li>
+      <li><a href="moodtracker.html">Mood Tracking</a></li>
+    </ul>
+    <a href="#" class="cta-button">Get Started</a>
+  </nav>
+
+<!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/banner01.png" alt="Los Angeles" class="d-block">
+        <div class="carousel-caption">
+          <h3>Understand the Importance of your Mental Health </h3>
+          <p>Discover insights from our experts on the importance of prioritizing your mental health, along with practical tips to help you stay balanced and resilient. Learn why mental well-being matters and how small, effective strategies can make a difference in your daily life.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/3nnn.png" alt="Chicago" class="d-block">
+        <div class="carousel-caption">
+          <h3> Creating a Healthy Work-Life Balance</h3>
+          <p>Learn how to establish boundaries and create a balanced approach to work and personal life. Our experts offer tips on managing time, setting priorities, and nurturing relationships outside of work. Discover actionable ways to maintain a healthy work-life balance for lasting mental well-being.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/group happy.png" alt="New York" class="d-block">
+        <div class="carousel-caption">
+          <h3>Fostering Positive Relationships at Work</h3>
+          <p>Discover the power of building healthy, supportive relationships in the workplace. Our experts share tips on communication, conflict resolution, and creating a positive environment. Learn how fostering strong connections can improve mental well-being, boost morale, and create a culture of respect.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+<!-- Resources Section -->
+<div class="resources">
+  <h2>Helpful Resources</h2>
+  <div class="resources-grid">
+    <!-- Resource Item 1 -->
+    <div class="resource-item" onclick="openModal('modal1')">
+      <img src="images/resources 1.png" alt="Meditation and Mindfulness">
+      <h3>Meditation and Mindfulness</h3>
+      <p>Discover calming techniques to reduce stress and enhance emotional well-being.</p>
+    </div>
+  
+     <!-- Resource Item 2 -->
+      <div class="resource-item" onclick="openModal('modal2')">
+        <img src="images/resources 2.png" alt="Mental Health Insights">
+        <h3>Mental Health Insights</h3>
+        <p>Learn about the importance of mental health and how to prioritize it in your daily life.</p>
+      </div>
+  
+      <!-- Resource Item 3 -->
+      <div class="resource-item" onclick="openModal('modal3')">
+        <img src="images/resources 3.png" alt="Stress Management Techniques">
+        <h3>Stress Management</h3>
+        <p>Explore strategies to manage and reduce stress effectively in both personal and professional life.</p>
+      </div>
+  
+      <!-- Resource Item 4 -->
+      <div class="resource-item" onclick="openModal('modal4')">
+        <img src="images/resources 4.png" alt="Meditation and Mindfulness">
+        <h3>Meditation and Mindfulness</h3>
+        <p>Techniques to enhance focus, minimize distractions, and boost productivity in a busy work environment.</p>
+      </div>
+  
+      <!-- Resource Item 5 -->
+      <div class="resource-item" onclick="openModal('modal5')">
+        <img src="images/resources 5.png"Mental Health Insights">
+        <h3>Mental Health Insights</h3>
+        <p>Guidance on resolving conflicts constructively to reduce stress and improve relationships with colleagues.</p>
+      </div>
+  
+      <!-- Resource Item 6 -->
+      <div class="resource-item" onclick="openModal('modal6')">
+        <img src="images/resources 6.png" alt="Stress Management Techniques">
+        <h3>Stress Management</h3>
+        <p>Tips on creating boundaries between work and personal life to avoid burnout and maintain mental well-being.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div id="modal1" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-content">
+    <button class="close" aria-label="Close Modal" onclick="closeModal('modal1')">&times;</button>
+    <div id="modal-title" class="header-section">
+      <h3>Resource 1</h3>
+      <h1>Meditation and Mindfulness</h1>
+      <p>Discover calming techniques to reduce stress and enhance emotional well-being</p>
+    </div>
+    <div class="image-section">
+      <img src="images/resource 1 full image.png" alt="Meditation and Mindfulness">
+    </div>
+    <div class="content-section">
+      <h3>What is Meditation?</h3>
+      <p>Meditation is a practice that encourages you to focus your mind, creating a state of calm and clarity. It can involve focusing on breathing, a thought, or visualizing peaceful scenes. Meditation helps release worries and stress.</p>
+      <div class="image-center">
+        <img src="images/Frame 29000.png" alt="Tranquil Scene">
+      </div>
+      <h3>Benefits of Mindfulness in the Workplace</h3>
+      <ul>
+        <li><strong>Reduced Stress:</strong> Mindfulness practice can help you relax and maintain perspective.</li>
+        <li><strong>Enhanced Focus:</strong> Stay present, completing tasks with efficiency and accuracy.</li>
+        <li><strong>Improved Emotional Well-being:</strong> Boosts resilience, aiding in emotional balance.</li>
+      </ul> 
+      <h3>Getting Started with Meditation and Mindfulness</h3>
+      <h4>a) Focused Breathing Exercise</h4>
+      <p>Begin with a few minutes of focused breathing. Inhale deeply, hold, then exhale slowly. Keep your attention on each breath.</p>
+      <h4>b) Body Scan</h4>
+      <p>Mentally "scan" from head to toe, noticing areas of tension and consciously relaxing them. Useful for desk work tension relief.</p>
+      <h4>c) Guided Meditation Apps</h4>
+      <p>Apps like Headspace or Calm offer beginner-friendly sessions, from quick, 5-minute exercises to in-depth meditations.</p>
+      <h4>d) Take a Mindful Break</h4>
+      <p>Step away from your computer, take a walk, and notice your surroundings. This simple practice re-energizes and calms.</p>
+
+      <h5>Consistency is Key</h3>
+      <p>Start small, with a few minutes each day. Over time, you’ll likely notice improved focus, resilience, and calmness.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+
+
+<!-- Tips & Quick Reads Section -->
+<div class="tips">
+    <h2>Mindful Moments</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="tip-card">
+          <!-- Using <video> tag to display the video -->
+          <video width="100%" height="auto" controls>
+            <source src="vedios/WhatsApp Video 2024-11-07 at 14.49.23_89af80c1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <h3>5-Minute Mindfulness</h3>
+          <p>Quick breathing and relaxation techniques for instant calm.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="tip-card">
+          <!-- Using <video> tag to display the video -->
+          <video width="100%" height="auto" controls>
+            <source src="vedios/final 2 .mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <h3>Desk Yoga</h3>
+          <p>Simple stretches you can do at your desk to relieve tension and stay relaxed.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="tip-card">
+          <!-- Using <video> tag to display the video -->
+          <video width="100%" height="auto" controls>
+            <source src="vedios/3rd .mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <h3>Boost Your Focus</h3>
+          <p>Tips to improve focus, productivity, and mental energy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br></br>
+  <!-- Footer Section -->
+  <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-links">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <ul>
+            <li><a href="#" class="social-icon"><img src="images/facebook.png" alt="Facebook"></a></li>
+            <li><a href="#" class="social-icon"><img src="images/twitter.png" alt="Twitter"></a></li>
+            <li><a href="#" class="social-icon"><img src="images/instagram.png" alt="Instagram"></a></li>
+            <li><a href="#" class="social-icon"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 help well. All rights reserved.</p>
+      </div>
+    </footer>
+
+  <script>
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    modal.querySelector('.close').focus();
+  }
+}
+
+// Close Modal
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+}
+
+// Close Modal on Outside Click
+window.addEventListener('click', function (event) {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach((modal) => {
+    if (event.target === modal) {
+      closeModal(modal.id);
+    }
+  });
+});
+
+// Trap Focus Within Modal
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Tab') {
+    const modal = document.querySelector('.modal.active');
+    if (modal) {
+      const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+  } else if (event.key === 'Escape') {
+    const modal = document.querySelector('.modal.active');
+    if (modal) {
+      closeModal(modal.id);
+    }
+  }
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const navbar = document.querySelector('.navbar');
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+          navbar.classList.add('light');
+        } else {
+          navbar.classList.remove('light');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

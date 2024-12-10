@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>help well</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="therapiststyles.css">
+
+  <!-- Inline CSS -->
+<style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+    
+      body {
+        font-family: 'Nunito', sans-serif;
+        background-color: #ffffff;
+        color: #93A5AC;
+        line-height: 1.6;
+      }
+    
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    
+      /* Navigation Bar */
+      .navbar {
+        background: rgba(224, 243, 247, 0.158); /* Glassmorphism effect */
+        backdrop-filter: blur(10px); /* Blurring effect */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px; /* Reduced padding */
+        width: 95%; /* Max width of 95% */
+        max-width: 1400px; /* Optional max-width for larger screens */
+        border-radius: 30px; /* Fully rounded edges */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        margin: 0 auto; /* Center align the navbar */
+        transition: background-color 0.3s ease-in-out;
+      }
+    
+      .navbar.light {
+        background: rgba(255, 255, 255, 0.7); /* Lighter background when scrolled */
+        backdrop-filter: blur(15px); /* More blur */
+      }
+    
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+    
+      .logo-container img {
+        height: 30px; /* Adjusted logo size */
+        margin-right: 15px;
+      }
+    
+      .navbar h1 {
+        font-size: 22px; /* Adjusted font size */
+        font-weight: 600;
+        color: #70B6D4;
+        margin: 0;
+      }
+    
+      .navbar ul {
+        display: flex;
+        list-style: none;
+      }
+    
+      .navbar ul li {
+        margin: 0 20px; /* Adjusted spacing */
+        font-size: 16px; /* Adjusted font size */
+      }
+    
+      .navbar ul li a {
+        position: relative;
+      }
+    
+      .navbar ul li a:after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -3px;
+        left: 0;
+        background-color: #70B6D4;
+        transition: width 0.4s ease-in-out;
+      }
+    
+      .navbar ul li a:hover:after {
+        width: 100%;
+      }
+    
+      .cta-button {
+        border: 2px solid #70B6D4;
+        padding: 5px 14px; /* Adjusted padding */
+        border-radius: 30px; /* Fully rounded edges */
+        color: #70B6D4;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 16px; /* Adjusted font size */
+        transition: background-color 0.3s ease;
+      }
+    
+      .cta-button:hover {
+        background-color: #70B6D4;
+        color: #ffffff;
+      }
+    
+      /* Hero Section */
+      .hero-section {
+        margin: 20px auto;
+        width: 95%; /* Increased width */
+        max-width: 1400px; /* Increased max-width */
+        height: 450px; /* Adjusted height */
+        border-radius: 30px; /* Rounded edges */
+        background: url('images/family image banner 1.png') no-repeat center center/cover; /* Replace with your image path */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+        position: relative; /* For positioning the button inside */
+      }
+    
+      .hero-section .cta-button {
+        position: absolute;
+        bottom: 85px; /* Adjust this value to position vertically */
+        right: 150px; /* Adjust this value to position horizontally */
+      }
+    
+     /* Centered Section */
+    .centered-section {
+    margin: 40px auto;
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 20px;
+    }
+    
+    .container {
+    text-align: center;
+    margin: 0 auto; /* Ensures proper centering */
+    color: #7ABBD7; /* Set the desired color */
+    font-family: 'Poppins', sans-serif; /* Optional: Use a clean font */
+    font-size: 15px; /* Optional: Adjust font size */
+    margin-top: 15px; /* Optional: Add spacing */
+    }
+    
+    .container h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    }
+    
+    .container p {
+    font-size: 1em;
+    margin-bottom: 30px;
+    color: #7d8ea1;
+    line-height: 1.8; /* Better line spacing */
+    }
+    
+    .button-group {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 20px;
+    }
+    
+    .button-group button {
+    font-size: 1em;
+    padding: 10px 20px;
+    border: 2px solid #d2e5f3;
+    background-color: white;
+    color: #6c9fcc;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+    
+    .button-group button:hover {
+    background-color: #d2e5f3;
+    }
+    
+     
+     /* Featured Section */
+     .featured {
+              padding: 0px 0;
+              background-color: #ffffff;
+              text-align: center;
+          }
+    
+          .featured h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #7ABBD7; /* Set the desired color */
+            font-family: 'Poppins', sans-serif; /* Optional: Use a clean font */
+            margin-top: 0px;
+            margin-bottom: 35px;
+          }
+    
+      .card-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 60px;
+      }
+    
+      .card {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 15px;
+        width: 280px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        cursor: pointer;
+      }
+    
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+      }
+    
+      .card img {
+        width: 100%;
+        border-radius: 15px;
+      }
+    
+      .card h3 {
+        font-size: 20px;
+        margin: 10px 0;
+        color: #70B6D4;
+      }
+    
+      .card p {
+        font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    color: #97A4AA;
+      }
+    
+      /* Modal Styling */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+    
+      .modal-content {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px; /* all sides*/
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    font-size: 28px; /* Optional: Adjust font size */
+    font-family: 'Poppins', sans-serif;
+    color: #7ABBD7;
+    position: relative;
+    max-height: 80vh; /* Limit the height of the modal */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    }
+    
+    p {
+    font-family: 'Nunito', sans-serif;
+    color: #97A4AA;
+    font-size: 17px;
+    }
+    h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #7ABBD7;
+    font-size: 17px;
+    }
+    
+    
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        color: #555;
+      }
+    
+      .modal-header h1 {
+        font-size: 26px;
+        color: #70B6D4;
+      }
+    
+      .modal-header p {
+        color: #70B6D4;
+        margin: 15px 0;
+      }
+    
+      .modal-content img {
+    width: 105%; /* Make the image responsive */
+    max-width: 1500px; /* Set a maximum width to avoid it being too large */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    margin-bottom: 20px; /* Add some space below the image */
+    }
+    
+      /* Calendar and Time Slot Section */
+      .calendar-time-section {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    
+      .calendar-section, .time-slots-section {
+        width: 48%;
+      }
+    
+      .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+    
+      .calendar-header h3 {
+        font-size: 18px;
+        color: #70B6D4;
+      }
+    
+      .calendar-nav button {
+        background-color: #70B6D4;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    
+      .calendar-nav button:hover {
+        background-color: #70B6D4;
+      }
+    
+      .calendar-table {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+        background-color: #e8f1fa;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    
+      .calendar-table div {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #93A5AC; /* Change the color of dates to black */
+      }
+    
+      .calendar-table div:hover {
+        background-color: #dde7f3;
+      }
+    
+      .calendar-table .selected-date {
+        background-color: #70B6D4;
+        color: white;
+      }
+    
+      .time-slot-buttons button {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+    
+      .time-slot-buttons button.selected-time {
+        background-color: #70B6D4;
+        color: white;
+      }
+    
+      .book-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background-color: #70B6D4;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+    
+      .book-button.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    
+      /* Color changes for text */
+      .modal-header p,
+      .time-slots-section h3 {
+        color: #93A5AC; /* Change color of these texts to black */
+      }
+    
+      /* Change color for time section text */
+      .time-slot-buttons button {
+        color: #93A5AC; /* Change color of time slot buttons text to black */
+      }
+          
+    /* Footer Section Styling */
+    .footer {
+    background-color: #70B6D4; /* Background color of the footer */
+    padding: 20px 0;
+    color: white;
+    }
+    
+    .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    }
+    
+    .footer-links ul,
+    .footer-social ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+    
+    .footer-links li,
+    .footer-social li {
+    margin-right: 20px;
+    }
+    
+    .footer-links li a,
+    .footer-social li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    }
+    
+    .footer-links li a:hover,
+    .footer-social li a:hover {
+    color: #fff;
+    text-decoration: underline;
+    }
+    
+    .footer-social .social-icon img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    }
+    
+    .footer-social .social-icon img:hover {
+    transform: scale(1.1);
+    }
+    
+    .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    }
+    
+    .footer-bottom p {
+    color: #ffffff;
+    }
+    
+    </style>
+    </head>
+    <body>
+    
+        <!-- Navigation Bar -->
+     <div class="navbar">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Logo"> <!-- Replace 'your-logo.png' with your logo file path -->
+        </div>
+        <ul>
+          <li><a href="Homepage.html" class="active">Home</a></li>
+          <li><a href="Resource Page.html">Resources</a></li>
+          <li><a href="Therapist Page.html">Therapists</a></li>
+          <li><a href="moodtracker.html">Mood Tracking</a></li>
+        </ul>
+        <!-- Reach Out button in the Navbar -->
+        <a href="#services" class="cta-button">Reach Out</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+    </div>
+    
+    <!-- Centered Section -->
+    <div class="centered-section">
+      <div class="container">
+        <h1>Meet Our Therapists</h1>
+        <p>Meet our team of dedicated and compassionate therapists, each with the expertise to guide you on your journey toward healing and growth. Explore their profiles to find the perfect match for your unique needs and preferences.</p>
+        <div class="button-group">
+          <button>Adults</button>
+          <button>Businesses</button>
+          <button>Teens</button>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Featured Section -->
+    <div class="featured">
+        <h2>Our Featured Therapists</h2>
+        <div class="card-container">
+          <div class="card" onclick="openModal()">
+            <img src="images/1A.png" alt="Dr. Anaya Nair">
+            <h3>Dr. Anaya Nair</h3>
+            <p>Burnout Recovery</p>
+          </div>
+          <div class="card" onclick="openModal('Dr. Rajeev Verma', 'Therapist Description Here')">
+            <img src="images/1B.png" alt="Dr. Rajeev Verma">
+            <h3>Dr. Rahul Mehta</h3>
+            <p>Anxiety Management</p>
+          </div>
+          <div class="card" onclick="openModal('Dr. Priya Mehta', 'Therapist Description Here')">
+            <img src="images/1C.png" alt="Dr. Priya Mehta">
+            <h3>Dr. Tanya Patil</h3>
+            <p>Mindfulness-Based Therapy</p>
+          </div>
+          <div class="card" onclick="openModal('Dr. Priya Mehta', 'Therapist Description Here')">
+              <img src="images/1D.png" alt="Dr. Priya Mehta">
+              <h3>Dr. Sameer Gupta</h3>
+              <p>Stress Management Therapy</p>
+            </div>
+            <div class="card" onclick="openModal('Dr. Priya Mehta', 'Therapist Description Here')">
+              <img src="images/1E.png" alt="Dr. Priya Mehta">
+              <h3>Dr. Sana Khanna</h3>
+              <p>Anxiety Management</p>
+            </div>
+            <div class="card" onclick="openModal('Dr. Priya Mehta', 'Therapist Description Here')">
+              <img src="images/1F.png" alt="Dr. Priya Mehta">
+              <h3>Dr. Vikram Shah</h3>
+              <p>Workplace Wellness Coach</p>
+            </div>
+        </div>
+      </div>
+    
+    <!-- Modal -->
+    <div class="modal" id="therapistModal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <div class="modal-header">
+            <h1 id="modalName">Therapist Name</h1>
+            <p id="modalDescription">Therapist description goes here.</p>
+            <img src="images/profillllllllllllllllllllllllllllle.png" alt="Dr. Anaya Nair">
+            <h1>Book Your Appointment</h1>
+                  <p>Select a date and time slot to book your appointment.</p>
+          </div>
+         
+          <div class="calendar-time-section">
+            <!-- Calendar Section -->
+            <div class="calendar-section">
+              <div class="calendar-header">
+                <button class="calendar-nav" onclick="changeMonth(-1)">&lt;</button>
+                <h3 id="calendarTitle">November 2024</h3>
+                <button class="calendar-nav" onclick="changeMonth(1)">&gt;</button>
+              </div>
+              <div class="calendar-table" id="calendarTable"></div>
+            </div>
+            <!-- Time Slots Section -->
+            <div class="time-slots-section">
+              <h3>Select Time Slot</h3>
+              <br>
+              <div class="time-slot-buttons" id="timeSlotButtons"></div>
+              <button class="book-button" id="bookButton" onclick="bookAppointment()">Book Appointment</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <br></br>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-links">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <ul>
+              <li><a href="#" class="social-icon"><img src="images/facebook.png" alt="Facebook"></a></li>
+              <li><a href="#" class="social-icon"><img src="images/twitter.png" alt="Twitter"></a></li>
+              <li><a href="#" class="social-icon"><img src="images/instagram.png" alt="Instagram"></a></li>
+              <li><a href="#" class="social-icon"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 help well. All rights reserved.</p>
+        </div>
+      </footer>
+    
+    <!-- JavaScript -->
+    <script>
+         function openModal(name, description) {
+          document.getElementById("modalName").textContent = name;
+          document.getElementById("modalDescription").textContent = description;
+          document.getElementById("therapistModal").style.display = "flex";
+        }
+    
+        function closeModal() {
+          document.getElementById("therapistModal").style.display = "none";
+          selectedDate = null;
+          selectedTime = null;
+          renderTimeSlots();
+        }
+    
+        const timeSlots = ["10:00 AM", "12:00 PM", "01:45 PM", "03:30 PM", "05:30 PM", "07:00 PM", "08:00 PM", "09:30 PM", "10:00 PM"];
+    let selectedDate = null;
+    let selectedTime = null;
+    let currentMonth = new Date().getMonth();
+    let currentYear = new Date().getFullYear();
+    
+    const calendarTable = document.getElementById("calendarTable");
+    const timeSlotButtons = document.getElementById("timeSlotButtons");
+    const bookButton = document.getElementById("bookButton");
+    const calendarTitle = document.getElementById("calendarTitle");
+    
+    function renderCalendar(month, year) {
+      calendarTable.innerHTML = '';
+      const firstDay = new Date(year, month).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+      for (let i = 0; i < firstDay; i++) {
+        const emptyCell = document.createElement("div");
+        calendarTable.appendChild(emptyCell);
+      }
+    
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateElement = document.createElement("div");
+        dateElement.textContent = day;
+        dateElement.onclick = () => selectDate(dateElement, day);
+        calendarTable.appendChild(dateElement);
+      }
+    
+      calendarTitle.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+    }
+    
+    function renderTimeSlots() {
+      timeSlotButtons.innerHTML = '';
+      timeSlots.forEach((time, index) => {
+        const timeButton = document.createElement("button");
+        timeButton.textContent = time;
+        timeButton.onclick = () => selectTime(index);
+        timeSlotButtons.appendChild(timeButton);
+      });
+    }
+    
+    function selectDate(element, day) {
+      if (selectedDate) {
+        selectedDate.classList.remove("selected-date");
+      }
+      selectedDate = element;
+      selectedDate.classList.add("selected-date");
+      checkBookingAvailability();
+    }
+    
+    function selectTime(index) {
+      if (selectedTime !== null) {
+        timeSlotButtons.children[selectedTime].classList.remove("selected-time");
+      }
+      selectedTime = index;
+      timeSlotButtons.children[selectedTime].classList.add("selected-time");
+      checkBookingAvailability();
+    }
+    
+    function checkBookingAvailability() {
+      if (selectedDate && selectedTime !== null) {
+        bookButton.classList.add("active");
+        bookButton.onclick = confirmBooking;
+      } else {
+        bookButton.classList.remove("active");
+        bookButton.onclick = null;
+      }
+    }
+    
+    function confirmBooking() {
+      const selectedDay = selectedDate.textContent;
+      const selectedTimeSlot = timeSlots[selectedTime];
+      alert(`Appointment booked for ${calendarTitle.textContent} ${selectedDay} at ${selectedTimeSlot}`);
+    }
+    
+    function changeMonth(direction) {
+      currentMonth += direction;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear -= 1;
+      } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear += 1;
+      }
+      renderCalendar(currentMonth, currentYear);
+    }
+    
+    renderCalendar(currentMonth, currentYear);
+    renderTimeSlots();
+    
+     // Add a scroll effect to change navbar background color on scroll
+     window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 0) {
+          navbar.classList.add('light');
+        } else {
+          navbar.classList.remove('light');
+        }
+      });
+    </script>
+    
+    </body>
+    </html>
+    

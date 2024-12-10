@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hell well</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="homestyles.css">
+  
+  <!-- Inline CSS -->
+<style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #93A5AC;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+  background: rgba(224, 243, 247, 0.158); /* Glassmorphism effect */
+  backdrop-filter: blur(10px); /* Blurring effect */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px; /* Reduced padding */
+  width: 95%; /* Max width of 95% */
+  max-width: 1400px; /* Optional max-width for larger screens */
+  border-radius: 30px; /* Fully rounded edges */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: 0 auto; /* Center align the navbar */
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+    .navbar.light {
+      background: rgba(255, 255, 255, 0.7); /* Lighter background when scrolled */
+      backdrop-filter: blur(15px); /* More blur */
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 30px; /* Adjusted logo size */
+      margin-right: 15px;
+    }
+
+    .navbar h1 {
+      font-size: 22px; /* Adjusted font size */
+      font-weight: 600;
+      color: #70B6D4;
+      margin: 0;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin: 0 20px; /* Adjusted spacing */
+      font-size: 16px; /* Adjusted font size */
+    }
+
+    .navbar ul li a {
+      position: relative;
+    }
+
+    .navbar ul li a:after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background-color: #70B6D4;
+      transition: width 0.4s ease-in-out;
+    }
+
+    .navbar ul li a:hover:after {
+      width: 100%;
+    }
+
+    .cta-button {
+      border: 2px solid #70B6D4;
+      padding: 5px 14px; /* Adjusted padding */
+      border-radius: 30px; /* Fully rounded edges */
+      color: #70B6D4;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px; /* Adjusted font size */
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #70B6D4;
+      color: #ffffff;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      margin: 20px auto;
+      width: 95%; /* Increased width */
+      max-width: 1400px; /* Increased max-width */
+      height: 450px; /* Adjusted height */
+      border-radius: 30px; /* Rounded edges */
+      background: url('images/hero banner newwww.jpg') no-repeat center center/cover; /* Replace with your image path */
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      position: relative; /* For positioning the button inside */
+    }
+
+    .hero-section .cta-button {
+      position: absolute;
+      bottom: 85px; /* Adjust this value to position vertically */
+      right: 150px; /* Adjust this value to position horizontally */
+    }
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 20;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #70B6D4;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.modal-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #70B6D4;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-form button:hover {
+  background-color: #5aa9c8;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+.image-section {
+  margin: -10px auto 10px auto;
+  width: 95%; /* Same as hero banner */
+  max-width: 1400px; /* Same as hero banner */
+  height: 350px; /* Same as hero banner */
+  border-radius: 30px; /* Same rounded edges */
+  overflow: hidden; /* Ensures no content overflows */
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image scales properly */
+  border-radius: 30px; /* Same as section */
+}
+/* Font Update */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* General Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 35px;
+  background-color: #ffffff;
+}
+
+.service-card {
+  background: #EDF2F6;
+  border-radius: 15px;
+
+  overflow: hidden;
+  text-align: left; /* Align text to the left */
+  padding: 13px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-width: 220px; /* Minimum width */
+  max-width: 320px; /* Maximum width */
+}
+
+
+.service-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px; /* Space between the image and text */
+}
+
+.service-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #7ABBD7;
+  margin: 10px 0 5px;
+}
+
+.service-card p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: #97A4AA;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-card .arrow-link {
+  position: absolute;
+  bottom: 20px; /* Push the arrow to the bottom of the card */
+  right: 20px; /* Align the arrow to the right */
+  font-size: 16px;
+  color: #7ABBD7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.service-card .arrow-link::after {
+  content: '➔'; /* Add the arrow */
+  margin-left: 8px; /* Space between text and arrow */
+}
+
+.service-card .arrow-link:hover {
+  color: #97A4AB;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center; /* Align text to center */
+  color: #7ABBD7; /* Set the desired color */
+  font-family: 'Poppins', sans-serif; /* Optional: Use a clean font */
+  font-size: 28px; /* Optional: Adjust font size */
+  margin-top: 35px; /* Optional: Add spacing */
+}
+
+.services2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 45px;
+  background-color: #ffffff;
+}
+
+.services2 .service-card {
+  background: none; /* Remove the rectangular background */
+  border-radius: 0; /* Remove border radius */
+  overflow: visible; /* Ensure content is not clipped */
+  text-align: left; /* Align text to the left */
+  padding: 0; /* Remove padding around the content */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 200px; /* Minimum width */
+  max-width: 300px; /* Maximum width */
+  box-shadow: none; /* Explicitly remove shadow */
+  pointer-events: none; /* Disable all click events */
+}
+
+.services2 .service-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px; /* Space between the image and text */
+  gap: 40px
+}
+
+.services2 .service-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #7ABBD7;
+  margin: 10px 0 5px;
+}
+
+.services2 .service-card p {
+  font-family: 'Nunito', sans-serif;
+  color: #97A4AA;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
+
+/* Testimonial Section */
+.testimonial-section {
+  text-align: center;
+  padding: 40px 15px;
+  background-color: #ffffff;
+}
+
+.testimonial-section h2 {
+  font-size: 28px;
+  color: #70B6D4;
+  margin-top: 0px;
+  margin-bottom: 47px;
+}
+
+.testimonial-carousel {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Ensures left alignment */
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+  opacity: 0; /* Hidden testimonials initially */
+  pointer-events: none;
+  display: none; /* Completely hidden from layout */
+}
+
+.testimonial-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #97A4AA;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.testimonial-author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.testimonial-author span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #7ABBD7;
+  font-weight: bold;
+}
+
+/* Dots (Carousel Indicators) */
+.carousel-indicators {
+  margin-top: 20px;
+}
+
+.carousel-indicators .dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.carousel-indicators .dot.active {
+  background-color: #70B6D4;
+}
+
+/* General Section Styling */
+.faq-section {
+  padding: 30px 15px;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.faq-section h2 {
+  font-size: 28px;
+  color: #70B6D4;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* FAQ Container */
+.faq-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.faq-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* FAQ Item */
+.faq-item {
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Question Section */
+.faq-question {
+  padding: 15px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #96A4AA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #70b6d430;
+}
+
+.faq-toggle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #70B6D4;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+/* Answer Section */
+.faq-answer {
+  display: none;
+  padding: 15px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  color: #97A4AA;
+  line-height: 1.6;
+  background-color: #70b6d430;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-container {
+    flex-direction: column;
+  }
+}
+/* Footer Section Styling */
+.footer {
+  background-color: #70B6D4; /* Background color of the footer */
+  padding: 20px 0;
+  color: white;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.footer-links ul,
+.footer-social ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-social li {
+  margin-right: 20px;
+}
+
+.footer-links li a,
+.footer-social li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover,
+.footer-social li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-social .social-icon img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social .social-icon img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.footer-bottom p {
+  color: #ffffff;
+}
+
+  </style>
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Logo"> <!-- Replace 'your-logo.png' with your logo file path -->
+    </div>
+    <ul>
+      <li><a href="Homepage.html" class="active">Home</a></li>
+      <li><a href="Resource Page.html">Resources</a></li>
+      <li><a href="Therapist Page.html">Therapists</a></li>
+      <li><a href="moodtracker.html">Mood Tracking</a></li>
+    </ul>
+    <!-- Reach Out button in the Navbar -->
+<a href="#cta" class="cta-button">Reach Out</a>
+ </div>
+
+<!-- Hero Section -->
+  <section class="hero-section">
+    <a href="#cta" class="cta-button">Know More</a>
+  </section>
+  <!-- Image Section Below Hero -->
+<section class="image-section">
+  <img src="images/what we do.jpg" alt="Descriptive Alt Text">
+</section>
+
+<div class="services">
+  <div class="service-card">
+    <img src="images/feature1.jpeg homepage .jpg" alt="On-Demand Therapy">
+    <h3>On-Demand Therapy</h3>
+    <p>Instant access to licensed therapists for support anytime.</p>
+    <a href="#" class="arrow-link"></a>
+  </div>
+  <div class="service-card">
+    <img src="images/feature2 homepage.jpg" alt="Custom Mental Tracking">
+    <h3>Custom Mental Tracking</h3>
+    <p>A personalized mental health tracker for insights and well-being.</p>
+    <a href="#" class="arrow-link"></a>
+  </div>
+  <div class="service-card">
+    <img src="images/feature3.png" alt="Mental Health Resources">
+    <h3>Mental Health Resources</h3>
+    <p>A curated library of resources for mental well-being.</p>
+    <a href="#" class="arrow-link"></a>
+  </div>
+</div>
+
+<h1>How we work?</h1>  
+
+<div class="services2">
+<div class="service-card">
+    <img src="images/How we work 1.png" alt="Find Your Ideal Therapist">
+    <h3>Find Your Ideal Therapist</h3>
+    <p>Answer a few questions to connect with certified providers who support your needs online.</p>
+  </div>
+  <div class="service-card">
+    <img src="images/How we work 2.png" alt="Connect with Your Therapist">
+    <h3>Connect with Your Therapist</h3>
+    <p>Choose the method that suits you best — text, chat, call, or video — for a comfortable experience.</p>
+  </div>
+  <div class="service-card">
+    <img src="images/How we work 3.png" alt="Support Anytime, Anywhere">
+    <h3>Support Anytime, Anywhere</h3>
+    <p>Schedule live sessions, chat, and connect via mobile or computer whenever it's convenient for you.</p>
+  </div>
+</div>
+
+
+
+<!-- Testimonial Section -->
+<section class="testimonial-section">
+  <h2>Their Words Speak for Us</h2>
+  <div class="testimonial-carousel">
+    <div class="testimonial-cards">
+      <!-- First 3 testimonials -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "The service has been instrumental in improving our team's mental well-being."
+        </p>
+        <div class="testimonial-author">
+          <img src="images/testimonial 1.jpeg.jpg" alt="Siddharth Verma">
+          <span>Siddharth Verma</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "We have seen a significant boost in productivity and happiness among our employees."
+        </p>
+        <div class="testimonial-author">
+          <img src="images/testimonial 2.jpeg.jpg" alt="Shreya Menon">
+          <span>Shreya Menon</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "An invaluable resource for supporting our employees' mental health."
+        </p>
+        <div class="testimonial-author">
+          <img src="images/testimonial 3.jpeg.jpg" alt="Aditya Rao">
+          <span>Aditya Rao</span>
+        </div>
+      </div>
+
+  <!-- First 3 testimonials -->
+  <div class="testimonial-card">
+    <p class="testimonial-text">
+      "The team made it easy for us to access the right resources when needed."
+    </p>
+    <div class="testimonial-author">
+      <img src="images/testimonial 1.jpeg.jpg" alt="Siddharth Verma">
+      <span>Kavita Sharma</span>
+    </div>
+  </div>
+  <div class="testimonial-card">
+    <p class="testimonial-text">
+      "Our mental health initiatives have never been more effective."
+    </p>
+    <div class="testimonial-author">
+      <img src="images/testimonial 2.jpeg.jpg" alt="Shreya Menon">
+      <span>Rajesh Kapoor</span>
+    </div>
+  </div>
+  <div class="testimonial-card">
+    <p class="testimonial-text">
+      "Truly a game-changer in promoting workplace well-being."
+    </p>
+    <div class="testimonial-author">
+      <img src="images/testimonial 3.jpeg.jpg" alt="Aditya Rao">
+      <span>Neha Joshi</span>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-indicators">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-container">
+    <!-- Left Column -->
+    <div class="faq-column">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Why should my company connect with Good Thinking?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Good Thinking offers personalized mental health services and support that can improve employee well-being and productivity.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is everything confidential?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Yes, all information shared with us is kept completely confidential and secure.
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="faq-column">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What percentage of employees need psychological support?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          Studies suggest that around 20-25% of employees benefit from mental health support services.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How can Good Thinking support employees?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          We provide workshops, one-on-one counseling, and online resources to support mental well-being in the workplace.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-links">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <ul>
+        <li><a href="#" class="social-icon"><img src="images/facebook.png" alt="Facebook"></a></li>
+        <li><a href="#" class="social-icon"><img src="images/twitter.png" alt="Twitter"></a></li>
+        <li><a href="#" class="social-icon"><img src="images/instagram.png" alt="Instagram"></a></li>
+        <li><a href="#" class="social-icon"><img src="images/linkedin.png" alt="LinkedIn"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 help well. All rights reserved.</p>
+  </div>
+</footer>
+
+</section>
+
+  <!-- Modal for Reach Out Form -->
+<div class="modal" id="reachOutModal">
+  <div class="modal-content">
+    <span class="modal-close" id="closeModal">&times;</span>
+    <div class="modal-header">Reach Out</div>
+    <form class="modal-form" id="reachOutForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+ <!-- JavaScript -->
+  <script>
+    // JavaScript for Navbar Scroll Effect
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+
+      if (window.scrollY > 50) {
+        navbar.classList.add("light");
+      } else {
+        navbar.classList.remove("light");
+      }
+    });
+// JavaScript for Testimonial Carousel
+const dots = document.querySelectorAll('.carousel-indicators .dot');
+const testimonials = document.querySelectorAll('.testimonial-card');
+
+let currentIndex = 0;
+
+function showTestimonials(index) {
+  testimonials.forEach((testimonial, i) => {
+    if (i >= index * 3 && i < (index + 1) * 3) {
+      testimonial.classList.remove('hidden'); // Show selected testimonials
+    } else {
+      testimonial.classList.add('hidden'); // Hide others
+    }
+  });
+
+  // Update active dot
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+// Event Listeners for Dots
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentIndex = index;
+    showTestimonials(index);
+  });
+});
+
+// Initialize with first set visible
+showTestimonials(currentIndex);
+
+// FAQ Accordion Functionality
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach((item) => {
+  const question = item.querySelector('.faq-question');
+
+  question.addEventListener('click', () => {
+    // Close all other FAQ items
+    faqItems.forEach((i) => {
+      if (i !== item) {
+        i.classList.remove('active');
+      }
+    });
+
+    // Toggle the current FAQ item
+    item.classList.toggle('active');
+  });
+});
+// Smooth Scroll for footer links
+document.querySelectorAll('.footer a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+    // Modal functionality
+const reachOutModal = document.getElementById("reachOutModal");
+const reachOutButton = document.querySelector(".cta-button"); // Reach Out button
+const closeModal = document.getElementById("closeModal");
+const reachOutForm = document.getElementById("reachOutForm");
+
+// Show modal when "Reach Out" button is clicked
+reachOutButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  reachOutModal.style.display = "flex";
+});
+
+// Close modal when close icon is clicked
+closeModal.addEventListener("click", () => {
+  reachOutModal.style.display = "none";
+});
+
+// Close modal when clicking outside modal content
+window.addEventListener("click", (e) => {
+  if (e.target === reachOutModal) {
+    reachOutModal.style.display = "none";
+  }
+});
+
+// Handle form submission
+reachOutForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Thank you for reaching out! We will get back to you shortly.");
+  reachOutModal.style.display = "none";
+  reachOutForm.reset();
+});
+</script>
+</body>
+</html>
