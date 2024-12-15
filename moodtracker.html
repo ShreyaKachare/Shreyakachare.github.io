@@ -15,6 +15,14 @@
       scroll-behavior: smooth;
     }
 
+    /* General Layout */
+html, body {
+  height: 100%; /* Full height for the page */
+  margin: 0; /* Remove default margin */
+  display: flex;
+  flex-direction: column; /* Arrange content in a column layout */
+}
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #ffffff;
@@ -165,9 +173,13 @@
       border-radius: 10px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
+    .chart-container {
+  width: 90%; /* Makes the graph take the full width of the container */
+  height: 600px; /* Explicit height */
+}
 
- /* Journal Section */
- #journal {
+/* Journal Section */
+#journal {
     width: 100%;
     max-width: 900px;
     margin: 50px auto;
@@ -219,7 +231,7 @@
   }
 
   .saved-journals {
-    margin-top: 30px;
+    margin-top: 0px;
     width: 100%;
     max-width: 600px;
   }
@@ -243,11 +255,20 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-    /* Footer Section Styling */
+  /* Footer Section Styling */
 .footer {
   background-color: #70B6D4; /* Background color of the footer */
   padding: 20px 0;
   color: white;
+}
+
+/* Footer Section */
+.footer {
+  background-color: #70B6D4; /* Background color of the footer */
+  padding: 20px 0;
+  color: white;
+  width: 100%; /* Ensure the footer spans the full width */
+  margin-top: auto; /* Push footer to the bottom when content is shorter */
 }
 
 .footer-container {
@@ -256,7 +277,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0px 0px;
+  padding: 10px 20px;
 }
 
 .footer-links ul,
@@ -307,11 +328,10 @@
   color: #ffffff;
 }
 
-
-
   </style>
-</head>
-<body>
+  </head>
+  <body>
+    
   <!-- Navigation Bar -->
   <div class="navbar">
     <div class="logo-container">
@@ -349,21 +369,20 @@
   <div class="chart-container">
     <canvas id="moodChart"></canvas>
   </div>
+    <canvas id="moodChart" width="800" height="0"></canvas>
 
 <!-- Journal Section -->
-<section id="journal">
-  <div class="journal-container">
-    <h3>Journal Your Thoughts</h3>
-    <textarea id="journal-entry" placeholder="Write about your mood or anything on your mind..." rows="6"></textarea>
-    <button class="save-journal-btn" onclick="saveJournalEntry()">Save Journal</button>
-
-    <div class="saved-journals">
-      <h4>Your Saved Entries:</h4>
-      <ul id="journal-list">
-        <!-- List of saved journal entries will appear here -->
-      </ul>
+ <section id="journal">
+    <div class="journal-container">
+      <h3>Daily Journal</h3>
+      <textarea id="journal-entry" rows="5" placeholder="Write about your day..."></textarea>
+      <button class="save-journal-btn" onclick="saveJournal()">Save Entry</button>
+      <div class="saved-journals">
+        <h4>Saved Entries</h4>
+        <ul id="journal-list"></ul>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- Footer Section -->
 <footer class="footer">
@@ -393,8 +412,8 @@
 </section>
   
   <script>
-    // Initialize chart data
-    const moodLabels = [];
+   // Initialize chart data
+       const moodLabels = [];
     const moodValues = [];
     const emojiMap = ['😃', '😢', '😡', '😴', '😟', '😍', '😐', '🤩', '😲', '🎉'];
 
@@ -446,29 +465,20 @@
       moodChart.update();
     }
 
- // Function to save journal entry
- function saveJournalEntry() {
-    const journalText = document.getElementById('journal-entry').value;
 
-    // Check if the journal text is not empty
-    if (journalText.trim() !== "") {
+    // Save Journal Entry
+    function saveJournal() {
+      const journalInput = document.getElementById('journal-entry');
       const journalList = document.getElementById('journal-list');
-
-      // Create a new list item for the journal entry
-      const newJournalEntry = document.createElement('li');
-      newJournalEntry.textContent = journalText;
-
-      // Add the new entry to the list
-      journalList.appendChild(newJournalEntry);
-
-      // Clear the textarea after saving
-      document.getElementById('journal-entry').value = "";
-
-      // Optionally, you could store the entries in local storage or a database if you want persistence
-    } else {
-      alert("Please write something before saving your journal.");
+      if (journalInput.value.trim() !== "") {
+        const newEntry = document.createElement('li');
+        newEntry.textContent = journalInput.value;
+        journalList.appendChild(newEntry);
+        journalInput.value = ""; // Clear input
+      } else {
+        alert("Please write something before saving!");
+      }
     }
-  }
 
     // JavaScript for Navbar Scroll Effect
     window.addEventListener("scroll", () => {
