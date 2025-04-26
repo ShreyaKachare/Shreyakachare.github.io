@@ -15,20 +15,15 @@
       scroll-behavior: smooth;
     }
 
-    /* General Layout */
-html, body {
-  height: 100%; /* Full height for the page */
-  margin: 0; /* Remove default margin */
-  display: flex;
-  flex-direction: column; /* Arrange content in a column layout */
-}
-
-    body {
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       font-family: 'Poppins', sans-serif;
       background-color: #ffffff;
       color: #93A5AC;
       line-height: 1.6;
-      transition: background-color 0.5s ease-in-out; /* Smooth background transition */
+      transition: background-color 0.5s ease-in-out;
     }
 
     a {
@@ -36,44 +31,33 @@ html, body {
       color: inherit;
     }
 
-        /* Navigation Bar */
-        .navbar {
-  background: rgba(224, 243, 247, 0.158); /* Glassmorphism effect */
-  backdrop-filter: blur(10px); /* Blurring effect */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px; /* Reduced padding */
-  width: 95%; /* Max width of 95% */
-  max-width: 1400px; /* Optional max-width for larger screens */
-  border-radius: 30px; /* Fully rounded edges */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  margin: 0 auto; /* Center align the navbar */
-  transition: background-color 0.3s ease-in-out;
-}
-
-
-    .navbar.light {
-      background: rgba(255, 255, 255, 0.7); /* Lighter background when scrolled */
-      backdrop-filter: blur(15px); /* More blur */
-    }
-
-    .logo-container {
+    /* Navigation Bar */
+    .navbar {
+      background: rgba(224, 243, 247, 0.158);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
+      justify-content: space-between;
       align-items: center;
+      padding: 10px 30px;
+      width: 95%;
+      max-width: 1400px;
+      border-radius: 30px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 0 auto;
+      transition: background-color 0.3s ease-in-out;
     }
 
     .logo-container img {
-      height: 30px; /* Adjusted logo size */
+      height: 30px;
       margin-right: 15px;
     }
 
     .navbar h1 {
-      font-size: 22px; /* Adjusted font size */
+      font-size: 22px;
       font-weight: 600;
       color: #70B6D4;
       margin: 0;
@@ -85,8 +69,8 @@ html, body {
     }
 
     .navbar ul li {
-      margin: 0 20px; /* Adjusted spacing */
-      font-size: 16px; /* Adjusted font size */
+      margin: 0 20px;
+      font-size: 16px;
     }
 
     .navbar ul li a {
@@ -110,12 +94,11 @@ html, body {
 
     .cta-button {
       border: 2px solid #70B6D4;
-      padding: 5px 14px; /* Adjusted padding */
-      border-radius: 30px; /* Fully rounded edges */
+      padding: 5px 14px;
+      border-radius: 30px;
       color: #70B6D4;
       font-weight: 600;
-      text-decoration: none;
-      font-size: 16px; /* Adjusted font size */
+      font-size: 16px;
       transition: background-color 0.3s ease;
     }
 
@@ -124,10 +107,10 @@ html, body {
       color: #ffffff;
     }
 
+    /* Hero Section */
     .hero {
       padding: 30px;
       text-align: center;
-      width: 100%;
       max-width: 800px;
       margin: 50px auto;
       display: flex;
@@ -145,12 +128,13 @@ html, body {
     .hero p {
       font-size: 18px;
       color: #97A4AA;
+      margin-top: 10px;
     }
 
     .mood-selector {
       display: flex;
       justify-content: center;
-      margin: 10px;
+      margin: 20px 0;
     }
 
     .mood-selector img {
@@ -165,323 +149,267 @@ html, body {
       transform: scale(1.2);
     }
 
+    /* Chart Section */
     .chart-container {
+      width: 90%;
       max-width: 1000px;
+      height: 400px;
       margin: 50px auto;
-      padding: 20px;
       background: #f9f9f9;
       border-radius: 10px;
+      padding: 20px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
-    .chart-container {
-  width: 90%; /* Makes the graph take the full width of the container */
-  height: 600px; /* Explicit height */
-}
 
-/* Journal Section */
-#journal {
-    width: 100%;
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-  }
+    /* Journal Section */
+    #journal {
+      width: 90%;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
 
-  .journal-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .journal-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  .journal-container h3 {
-    font-size: 36px;
-    font-family: 'Poppins', sans-serif;
-    color: #7ABBD7;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
+    .journal-container h3 {
+      font-size: 36px;
+      color: #7ABBD7;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
 
-  #journal-entry {
-    width: 200%;
-    max-width: 600px;
-    padding: 15px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    resize: vertical;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
+    #journal-entry {
+      width: 100%;
+      max-width: 600px;
+      padding: 15px;
+      font-size: 16px;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      resize: vertical;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-  .save-journal-btn {
-    border: 2px solid #70B6D4;
-      padding: 5px 14px; /* Adjusted padding */
-      border-radius: 30px; /* Fully rounded edges */
+    .save-journal-btn {
+      border: 2px solid #70B6D4;
+      padding: 8px 20px;
+      border-radius: 30px;
       color: #70B6D4;
       font-weight: 600;
-      text-decoration: none;
-      font-size: 16px; /* Adjusted font size */
+      font-size: 16px;
       transition: background-color 0.3s ease;
+      cursor: pointer;
+      background: none;
     }
 
     .save-journal-btn:hover {
       background-color: #70B6D4;
       color: #ffffff;
+    }
 
-  .saved-journals {
-    margin-top: 0px;
-    width: 100%;
-    max-width: 600px;
-  }
+    .saved-journals {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 600px;
+    }
 
-  .saved-journals h4 {
-    font-size: 20px;
-    color: #7ABBD7;
-    margin-bottom: 10px;
-  }
+    .saved-journals h4 {
+      font-size: 20px;
+      color: #7ABBD7;
+      margin-bottom: 10px;
+    }
 
-  #journal-list {
-    list-style-type: none;
-    padding: 0;
-  }
+    #journal-list {
+      list-style-type: none;
+      padding: 0;
+    }
 
-  #journal-list li {
-    background-color: #e0f7fa;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
+    #journal-list li {
+      background-color: #e0f7fa;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
- /* Footer Section Styling */
-.footer {
-  background-color: #70B6D4; /* Background color of the footer */
-  padding: 20px 0;
-  color: white;
-}
+    /* Footer Section */
+    .footer {
+      background-color: #70B6D4;
+      padding: 20px 0;
+      color: white;
+      margin-top: auto;
+    }
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 20px;
-}
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+    }
 
-.footer-links ul,
-.footer-social ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .footer-links ul, .footer-social ul {
+      display: flex;
+      list-style: none;
+    }
 
-.footer-links li,
-.footer-social li {
-  margin-right: 20px;
-}
+    .footer-links li, .footer-social li {
+      margin-right: 20px;
+    }
 
-.footer-links li a,
-.footer-social li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
+    .footer-links a, .footer-social a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+    }
 
-.footer-links li a:hover,
-.footer-social li a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
+    .footer-links a:hover, .footer-social a:hover {
+      text-decoration: underline;
+    }
 
-.footer-social .social-icon img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-}
+    .footer-social img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
 
-.footer-social .social-icon img:hover {
-  transform: scale(1.1);
-}
+    .footer-social img:hover {
+      transform: scale(1.1);
+    }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 13px;
-}
-
-.footer-bottom p {
-  color: #ffffff;
-}
-
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+    }
   </style>
-  </head>
-  <body>
-    
-  <!-- Navigation Bar -->
-  <div class="navbar">
-    <div class="logo-container">
-      <img src="logo.png" alt="Logo">
-    </div>
-    <ul>
-      <li><a href="index.html"class="active">Home</a></li>
-      <li><a href="Resource.html">Resources</a></li>
-      <li><a href="Therapist Page.html">Therapists</a></li>
-      <li><a href="moodtracker.html">Mood Tracking</a></li>
-    </ul>
-    <a href="#cta" class="cta-button">Reach Out</a>
-  </div>
+</head>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h2>Your Mental Health Matters 🌼</h2>
-    <p>Track your emotions and reflect on your journey towards mental well-being.</p>
-  </section>
+<body>
 
-  <div class="mood-selector">
-    <img src="emoji1.png" alt="Happy" onclick="setMood('Happy', 1, '#c3e9c4')">
-    <img src="Emoji2.png" alt="Sad" onclick="setMood('Sad', 2, '#f0d6d6')">
-    <img src="Emoji3.png" alt="Angry" onclick="setMood('Angry', 3, '#ffcccc')">
-    <img src="Emoji4.png" alt="Tired" onclick="setMood('Tired', 4, '#f4f0e1')">
-    <img src="Emoji5.png" alt="Anxious" onclick="setMood('Anxious', 5, '#f0d6f0')">
-    <img src="Emoji6.png" alt="Loving" onclick="setMood('Loving', 6, '#ffebcc')">
-    <img src="Emoji7.png" alt="Bored" onclick="setMood('Bored', 7, '#e6e6e6')">
-    <img src="Excited.png" alt="Excited" onclick="setMood('Excited', 8, '#cde7f2')">
-    <img src="Emoji9.png" alt="Surprised" onclick="setMood('Surprised', 9, '#fff9c4')">
-    <img src="celebration.png" alt="Celebration" onclick="setMood('Celebration', 10, '#ffd1dc')">
+<!-- Navigation -->
+<div class="navbar">
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo">
   </div>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="Resource.html">Resources</a></li>
+    <li><a href="TherapistPage.html">Therapists</a></li>
+    <li><a href="moodtracker.html">Mood Tracking</a></li>
+  </ul>
+  <a href="#cta" class="cta-button">Reach Out</a>
+</div>
 
-  <!-- Chart -->
-  <div class="chart-container">
-    <canvas id="moodChart"></canvas>
-  </div>
-    <canvas id="moodChart" width="800" height="0"></canvas>
+<!-- Hero -->
+<section id="home" class="hero">
+  <h2>Your Mental Health Matters 🌼</h2>
+  <p>Track your emotions and reflect on your journey towards mental well-being.</p>
+</section>
+
+<!-- Mood Selector -->
+<div class="mood-selector">
+  <img src="emoji1.png" alt="Happy" onclick="setMood('Happy', 1)">
+  <img src="emoji2.png" alt="Sad" onclick="setMood('Sad', 2)">
+  <img src="emoji3.png" alt="Angry" onclick="setMood('Angry', 3)">
+  <img src="emoji4.png" alt="Tired" onclick="setMood('Tired', 4)">
+</div>
+
+<!-- Chart -->
+<div class="chart-container">
+  <canvas id="moodChart"></canvas>
+</div>
 
 <!-- Journal Section -->
- <section id="journal">
-    <div class="journal-container">
-      <h3>Daily Journal</h3>
-      <textarea id="journal-entry" rows="5" placeholder="Write about your day..."></textarea>
-      <button class="save-journal-btn" onclick="saveJournal()">Save Entry</button>
-      <div class="saved-journals">
-        <h4>Saved Entries</h4>
-        <ul id="journal-list"></ul>
-      </div>
-    </div>
-  </section>
+<section id="journal">
+  <div class="journal-container">
+    <h3>Daily Journal</h3>
+    <textarea id="journal-entry" placeholder="Write about your day..."></textarea>
+    <button class="save-journal-btn" onclick="saveJournal()">Save Entry</button>
 
-  <!-- Footer Section -->
+    <div class="saved-journals">
+      <h4>Saved Journals</h4>
+      <ul id="journal-list"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-links">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="Resource.html">Resources</a></li>
-        <li><a href="Therapist Page.html">Therapists</a></li>
-        <li><a href="moodtracker.html">Mood Tracking</a></li>
+        <li><a href="TherapistPage.html">Therapists</a></li>
       </ul>
     </div>
     <div class="footer-social">
       <ul>
-        <li><a href="#" class="social-icon"><img src="facebook.png" alt="Facebook"></a></li>
-        <li><a href="#" class="social-icon"><img src="twitter.png" alt="Twitter"></a></li>
-        <li><a href="#" class="social-icon"><img src="instagram.png" alt="Instagram"></a></li>
-        <li><a href="#" class="social-icon"><img src="linkedin.png" alt="LinkedIn"></a></li>
+        <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
+        <li><a href="#"><img src="twitter-icon.png" alt="Twitter"></a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2024 help well. All rights reserved.</p>
+    <p>&copy; 2025 Your Mental Health Tracker. All Rights Reserved.</p>
   </div>
 </footer>
 
-</section>
-  
-  <script>
-   // Initialize chart data
-       const moodLabels = [];
-    const moodValues = [];
-    const emojiMap = ['😃', '😢', '😡', '😴', '😟', '😍', '😐', '🤩', '😲', '🎉'];
-
-    const ctx = document.getElementById('moodChart').getContext('2d');
-    const moodChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: moodLabels,
-        datasets: [{
-          label: 'Mood Tracker',
-          data: moodValues,
-          backgroundColor: 'rgba(114, 193, 249, 0.2)',
-          borderColor: '#72C1F9',
-          borderWidth: 2,
-          pointBackgroundColor: '#72C1F9',
-          pointBorderColor: '#ffffff',
-          pointRadius: 5,
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Day/Time',
-            }
-          },
-          y: {
-            min: 1,
-            max: 10,
-            ticks: {
-              stepSize: 1
-            }
+<script>
+  const ctx = document.getElementById('moodChart').getContext('2d');
+  const moodChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Mood Over Time',
+        data: [],
+        backgroundColor: 'rgba(112, 182, 212, 0.2)',
+        borderColor: '#70B6D4',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          min: 0,
+          max: 5,
+          ticks: {
+            stepSize: 1
           }
         }
       }
-    });
-
-    function setMood(mood, moodValue, bgColor) {
-      const currentTime = new Date().toLocaleTimeString();
-      moodLabels.push(currentTime);
-      moodValues.push(moodValue);
-
-      // Update chart background color based on selected mood
-      document.body.style.backgroundColor = bgColor;
-
-      // Update chart data
-      moodChart.update();
     }
+  });
 
+  function setMood(mood, value) {
+    moodChart.data.labels.push(new Date().toLocaleTimeString());
+    moodChart.data.datasets[0].data.push(value);
+    moodChart.update();
+  }
 
-    // Save Journal Entry
-    function saveJournal() {
-      const journalInput = document.getElementById('journal-entry');
-      const journalList = document.getElementById('journal-list');
-      if (journalInput.value.trim() !== "") {
-        const newEntry = document.createElement('li');
-        newEntry.textContent = journalInput.value;
-        journalList.appendChild(newEntry);
-        journalInput.value = ""; // Clear input
-      } else {
-        alert("Please write something before saving!");
-      }
+  function saveJournal() {
+    const entry = document.getElementById('journal-entry').value;
+    if (entry.trim() !== "") {
+      const list = document.getElementById('journal-list');
+      const listItem = document.createElement('li');
+      listItem.textContent = entry;
+      list.appendChild(listItem);
+      document.getElementById('journal-entry').value = "";
     }
+  }
+</script>
 
-    // JavaScript for Navbar Scroll Effect
-    window.addEventListener("scroll", () => {
-      const navbar = document.querySelector(".navbar");
-
-      if (window.scrollY > 50) {
-        navbar.classList.add("light");
-      } else {
-        navbar.classList.remove("light");
-      }
-    });
-
-  </script>
 </body>
 </html>
